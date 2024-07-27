@@ -10,14 +10,7 @@ const app = express();
 dotenv.config();
 app.use(express.json({ limit: "30mb", extend: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-
-// CORS configuration
-const corsOptions = {
-  origin: "https://stack-overflow-by-urvish.netlify.app/", 
-  methods: ["GET", "POST", "PATCH", "DELETE"],
-  credentials: true,
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("This is a stack overflow clone API");
